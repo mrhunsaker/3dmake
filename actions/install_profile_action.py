@@ -12,7 +12,7 @@ def install_profile(ctx: Context, stdout: OutputStream, debug_stdout: OutputStre
     if not ctx.files.explicit_input_file:
         raise RuntimeError(f"You must specify a profile .ini file.")
     dest_file = ctx.config_dir / 'profiles' / ctx.files.explicit_input_file.name
-    if dest_file.exists:
+    if dest_file.exists():
         if not yes_or_no(f'A profile called {dest_file.name} already exists. Overwrite it?'):
             return
 
